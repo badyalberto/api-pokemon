@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "normalize.css";
+import "../src/App.css";
+import GridPokemons from "components/organisms/GridPokemons";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { ReactComponent as Logo } from "./assets/images/pokemon-23.svg";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokemons: {},
+    };
+  }
+
+  render() {
+    const { pokemons } = this.state;
+    return (
+      <>
+        <div className="header__image">
+          <Logo  />
+        </div>
+        <GridPokemons pokemons={pokemons} />
+      </>
+    );
+  }
 }
 
 export default App;
